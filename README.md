@@ -1,4 +1,6 @@
 # nonie Prototype
+![Bintray](https://img.shields.io/badge/Milestone-Inception-blue.svg) ![CircleCI](https://circleci.com/gh/fischer-lukas/nonie-prototype.svg?style=svg)](https://circleci.com/gh/fischer-lukas/nonie-prototype)
+
 
 This project is a prototype of a platform, which brings together multiple cloud services where 
 the user can save / share documents and doesn't have to think about where it will be stored.
