@@ -1,3 +1,3 @@
 # nonie-prototype
-[![Bintray](https://img.shields.io/badge/Milestone-Inception-blue.svg)
+![Bintray](https://img.shields.io/badge/Milestone-Inception-blue.svg)
 
