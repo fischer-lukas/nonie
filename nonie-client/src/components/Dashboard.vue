@@ -17,21 +17,51 @@
             </template>
             </tbody>
         </table>
+        <br/>
+        <hr>
+        <br/>
+
+        <h1>Axios test</h1>
+        <div class="hello">
+            <h1>your IP is {{ ip }}</h1>
+            <input type="text" v-model="input.firstname" placeholder="First Name" />
+            <input type="text" v-model="input.lastname" placeholder="Last Name" />
+            <button v-on:click="sendData()">Send</button>
+            <br />
+            <br />
+            <div>{{ response }}</div>
+        </div>
     </div>
 </template>
 
 <script>
-    import axios from 'axios'
-
     export default {
+        name: 'HelloWorld',
         data() {
             return {
-                artefacts: {}
+                ip: "",
+                input: {
+                    firstname: "",
+                    lastname: ""
+                },
+                response: ""
             }
         },
-        async created () {
-            const response = await axios.get('http://localhost:8000/dashboard')
-            this.artefacts = response.data
+        mounted() {
+            this.$http.get("http://192.168.0.157:8080/greeting").then(result => {
+                this.ip = result.body.id;
+            }, error => {
+                console.error(error);
+            });
+        },
+        methods: {
+            sendData() {
+                this.$http.post("https://httpbin.org/post", this.input, {headers: { "content-type": "application/json" } }).then(result => {
+                    this.response = result.data;
+                }, error => {
+                    console.error(error);
+                });
+            }
         }
     }
 </script>
